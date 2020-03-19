@@ -6,14 +6,14 @@ CSCE 606 Team Project (Spring 2020) to develop animations for the StepStone lear
 
 Our team consists of the given collaborators for this repository and are listed below: 
 
->***Team Leader / Product Owner***\
-Charles Rothrock
+***Team Leader / Product Owner***\
+> Charles Rothrock
 
->***Scrum Master***\
-Benjamin D'Antonio
+***Scrum Master***\
+> Benjamin D'Antonio
 
->***Other Team Members***\
-Shane Poldervaart\
-Kevin Tang\
-Siddharth Sundar\
-Yiqing Zhao
+***Other Team Members***\
+> Shane Poldervaart\
+> Kevin Tang\
+> Siddharth Sundar\
+> Yiqing Zhao
