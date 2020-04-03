@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JavaScript Hangman game</title>
+<script  src="js/index.js"></script>
+<script type="text/javascript" src="js/3p/jquery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/3p/iframeResizer/iframeResizer.contentWindow.min.js"></script><!-- always use this for easy resizing, paired with stepstone player handler -->
+<!--//------------[ pdf browser embed method ]---------------------------- -->
+<script type="text/javascript" src="js/3p/pipwerks/pdfobject.min.js"></script> <!-- [ MIT license ] -->
+<!--//------------[ browser detection 1 ]-------------------------------------------- -->
+<script type="text/javascript" src="js/3p/jquery/extensions/jquery.detectmobilebrowser.js"></script> <!-- [ open src ] -->
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/animate.js"></script>
+<link rel="stylesheet" href="css/butes.css" />
+<link rel="stylesheet" href="css/style.css">  
+</head>
+<body>
+<div id="masterContainer" class="masterContainer" data-viewportNarrow="false">
+    
+    <h1>Weighted Scales Animation</h1>
+    
+    
+    <button onclick="setWeights()">Set</button>
+
+    <div class="container">
+        <button onclick="addWeight(30)">Add small weight</button>
+        <button onclick="addWeight(100)">Add large weight</button>
+        <button onclick="subtractWeight(30)">Subtract small weight</button>
+        <button onclick="subtractWeight(100)">Substract large weight</button>
+    </div>
+    
+    <center><div id="container">
+        <div id="leftWeight"></div>
+        <div id="rightWeight"></div>
+    </div></center>
+    
+</div>
+<div id="viewPortNarrowThreshold"></div>
+</body>
+</html>
