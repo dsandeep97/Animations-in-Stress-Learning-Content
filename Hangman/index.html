@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Headers -->
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Hangman</title>
+
+        <!-- JQuery -->
+        <script src="./node_modules/jquery/dist/jquery.min.js" type="text/javascript"></script>
+        <!-- IFrame Resizer -->
+        <script src="./node_modules/iframe-resizer/js/iframeResizer.contentWindow.min.js" type="text/javascript"></script>
+        <!-- Bootstrap 4 -->
+        <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+        <!-- Custom Scripts -->
+        <!-- <script src="./js/hangman.js" type="text/javascript"></script> -->
+        <script src="./js/index.js" type="text/javascript"></script>
+        <script src="./js/main.js" type="text/javascript"></script>
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body style="background-color: transparent;">
+        <div class="container"> 
+            <h1 class="text-center">Hangman</h1>
+            <br>
+            <div class="text-center">
+                <img id="hangmanPic" src="./img/wrong0.png" alt = "">
+                <p id="sentenceToFill"></p>
+                <p>Wrong Guesses: <span id="incorrect">0</span> of <span id="totalGuesses"></span></p>
+                <div id="keyboard"></div>
+                <button class="btn btn-secondary" onClick="reset()">Reset</button>
+            </div>
+        </div>
+    </body>
+</html>
