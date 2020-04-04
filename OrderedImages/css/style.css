@@ -1,0 +1,25 @@
+#original_items, #cloned_items {
+    list-style: none;
+}
+
+#original_items li {
+    float: left;
+    position: relative;
+    z-index: 5;
+}
+
+ul li {
+    margin: 3px 3px 3px 0;
+    padding: 1px;
+    width: 200px;
+    height: 200px;
+    font-size: 4em;
+    text-align: center;
+    border: solid 1px #B22222;
+    background-color: #F8F8FF;
+}
+
+#cloned_items li {
+    position: absolute;
+    z-index: 1;
+}
