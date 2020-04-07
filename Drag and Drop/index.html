@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Drag and drop event for the words into the respective blanks -->
+        <script>
+            function allowDrop(ev) {
+            ev.preventDefault();  
+            }
+            function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+            }
+            function drop(ev) {
+                ev.preventDefault();
+                var data = ev.dataTransfer.getData("text");
+                var location = ev.target.id
+                var text = document.getElementById(data);
+                if(location == "spot1" && text.id == "drag2")  // Cell Body
+                {
+                    ev.target.appendChild(text);
+                }
+                if(location == "spot2" && text.id == "drag5") // Nucleus
+                {
+                    ev.target.appendChild(text);
+                }
+                if(location == "spot3" && text.id == "drag4") // Dendrite
+                {
+                    ev.target.appendChild(text);
+                }
+                if(location == "spot4" && text.id == "drag7") // to
+                {
+                    ev.target.appendChild(text);
+                }
+                if(location == "spot5" && text.id == "drag1") // Axon
+                {
+                    ev.target.appendChild(text);
+                }
+                if(location == "spot6" && text.id == "drag6") // away
+                {
+                    ev.target.appendChild(text);
+                }
+                if(location == "spot7" && text.id == "drag3") // Synapse
+                {
+                    ev.target.appendChild(text);
+                }
+                if(location == "spot8" && text.id == "drag8") // across
+                {
+                    ev.target.appendChild(text);
+                }
+            }
+        </script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- iframe resizer -->
+        <script src = "js/iframeResizer.min.js"></script>
+        <script src = "js/iframeResizer.contentWindow.min.js"></script>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" type="text/css">
+        <!-- <link href="css/index.css" rel="stylesheet" type="text/css"> -->
+        <!-- <link href = "style.css" rel = "stylesheet" type = "text/css"> -->
+        <style>
+            #slide{
+                color: crimson;
+                text-align: center;
+                font-size: x-large; 
+                font-weight: 700;
+            }
+             #image{
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                float: center;
+                width: 800px;
+            }
+            #tbl{
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                float: right;
+                position: fixed;
+                bottom: 30%;
+                border:1px solid black;
+                background-color: lightgreen;
+            }
+            .clearfix{
+                clear:both
+            }
+            #drag1{
+                float: left;
+                font-size: 18px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: 800;
+            }
+            .notAxon{
+                text-align: left; 
+                font-weight: 800; 
+                font-size: 18px;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            /* css styling for the individual boxes to drop answers to */
+            #spot1{
+                float: left;
+                width: 100px;
+                height: 40px;
+                background:lightgray;
+                border: 2px solid black;
+                margin-right: 4%;
+                margin-left: 10%;
+            }
+            #spot2{
+                float: left;
+                width: 100px;
+                height: 40px;
+                background:lightgray;
+                border: 2px solid black;
+                margin-right: 4%;
+            }
+            #spot3{
+                float: left;
+                width: 100px;
+                height: 40px;
+                background:lightgray;
+                border: 2px solid black;
+                margin-right: 4%;
+            }
+            #spot4{
+                float: left;
+                width: 100px;
+                height: 40px;
+                background:lightgray;
+                border: 2px solid black;
+                margin-right: 4%;
+            }
+            #spot5{
+                float: left;
+                width: 100px;
+                height: 40px;
+                background:lightgray;
+                border: 2px solid black;
+                margin-right: 4%;
+            }
+            #spot6{
+                float: left;
+                width: 100px;
+                height: 40px;
+                background:lightgray;
+                border: 2px solid black;
+                margin-right: 4%;
+            }
+            #spot7{
+                float: left;
+                width: 100px;
+                height: 40px;
+                background:lightgray;
+                border: 2px solid black;
+                margin-right: 4%;
+            }
+            #spot8{
+                float: left;
+                width: 100px;
+                height: 40px;
+                background:lightgray;
+                border: 2px solid black;
+                margin-right: 4%;
+            }
+        </style>
+    </head>
+    <body class = "w3-container w3-white">
+        <p id = "slide">Label the Neuron</p>
+        <p style = "text-align: center;">Starting with the top blank on the right side of the neuron and working your way down, drag and drop the words from the word bank to the appropriate boxes below the image.</p>
+        <!-- word bank represented as table -->
+        <table id=  "tbl">
+            <tr>
+              <td id = "drag1" draggable = "true" ondragstart="drag(event)">Axon</td>
+              <td id = "drag2" class = "notAxon" draggable = "true" ondragstart="drag(event)">Cell Body</td>
+            </tr>
+            <tr>
+              <td id = "drag3" class = "notAxon" draggable = "true" ondragstart="drag(event)">Synapse</td>
+              <td id = "drag4" class = "notAxon" draggable = "true" ondragstart="drag(event)">Dendrite</td>
+            </tr>
+            <tr>
+              <td id = "drag5" class = "notAxon" draggable = "true" ondragstart="drag(event)">Nucleus</td>
+              <td id = "drag6" class = "notAxon" draggable = "true" ondragstart="drag(event)">away</td>
+            </tr>
+            <tr>
+              <td id = "drag7" class = "notAxon" draggable = "true" ondragstart="drag(event)">to</td>
+              <td id = "drag8" class = "notAxon" draggable = "true" ondragstart="drag(event)">across</td>
+            </tr>
+          </table>
+        <img src = "neuron2.jpg" id = "image" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <!-- <div id="spot1" ondrop="drop(event)" ondragover="allowDrop(event)"></div> -->
+        <br>
+        <br>
+          <div id = "spot1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+          <div id = "spot2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+          <div id = "spot3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+          <div id = "spot4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+          <div id = "spot5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+          <div id = "spot6" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+          <div id = "spot7" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+          <div id = "spot8" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    </body>
+</html>
