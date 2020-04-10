@@ -61,7 +61,6 @@ window.onload = function() {
         });
         sentence_display.innerHTML = sentence; 
         word_displays = document.getElementsByClassName('word'); 
-        console.log(answer_map); 
     }
     
     /* generate buttons for each alphabetical letter to allow guessing */ 
@@ -80,8 +79,9 @@ window.onload = function() {
     /* handle the player's next guess (triggered by clicking on an active button) */ 
     function handleGuess(event) {
         var button = event.target;  
-        var letter = button.innerText; 
-        button.disabled = true; 
+        var letter = button.innerText;
+        button.className += " disabled"; 
+        button.onclick = null; 
         /* correct guess */ 
         if (answer_map.get(letter) != undefined) {
             guess_map.set("right",guess_map.get("right")+1); 
@@ -99,7 +99,6 @@ window.onload = function() {
         } else {
             guess_map.set("wrong",guess_map.get("wrong")+1); 
             wrong_guesses.innerHTML = guess_map.get("wrong"); 
-            console.log(wrong_guesses.innerHTML); 
             if (guess_map.get("wrong") == guess_map.get("total")) {
                 hangman_picture.src = "./img/lose.png"; 
                 letter_buttons.innerHTML = "You lose. Click Reset to try again!"; 
