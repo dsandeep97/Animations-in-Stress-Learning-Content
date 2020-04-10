@@ -16,7 +16,7 @@
         <!-- Custom Scripts -->
         <!-- <script src="./js/hangman.js" type="text/javascript"></script> -->
         <script src="./js/index.js" type="text/javascript"></script>
-        <script src="./js/main.js" type="text/javascript"></script>
+        <!-- <script src="./js/main.js" type="text/javascript"></script> -->
 
         <!-- Stylesheets -->
         <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
@@ -29,9 +29,9 @@
             <div class="text-center">
                 <img id="hangmanPic" src="./img/wrong0.png" alt = "">
                 <p id="sentenceToFill"></p>
-                <p>Wrong Guesses: <span id="incorrect">0</span> of <span id="totalGuesses"></span></p>
-                <div id="keyboard"></div>
-                <button class="btn btn-secondary" onClick="reset()">Reset</button>
+                <p>Wrong Guesses: <span id="wrong">0</span> of <span id="totalGuesses"></span></p>
+                <div id="buttons"><ul id="letters"></ul></div>
+                <button class="btn btn-secondary" id="reset">Reset</button>
             </div>
         </div>
     </body>
