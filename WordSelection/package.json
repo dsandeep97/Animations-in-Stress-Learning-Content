@@ -1,0 +1,16 @@
+{
+  "name": "wordselect",
+  "version": "1.0.0",
+  "description": "Package for testing word selection",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cucumber": "./node_modules/.bin/cucumber-js ./features -r ./features/steps"
+  },
+  "author": "Shane Poldervaart",
+  "license": "ISC",
+  "devDependencies": {
+    "assert": "^2.0.0",
+    "cucumber": "^6.0.5"
+  }
+}

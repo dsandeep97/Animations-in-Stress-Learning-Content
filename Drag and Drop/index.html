@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- iframe resizer -->
+        <script src = "js/iframeResizer.min.js"></script>
+        <script src = "js/iframeResizer.contentWindow.min.js"></script>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" type="text/css">
+            <!-- Drag and drop event for the words into the respective blanks -->
+            <script>
+                function allowDrop(ev) {
+                ev.preventDefault();  
+                }
+                function drag(ev) {
+                ev.dataTransfer.setData("text", ev.target.id);
+                }
+                function drop(ev) {
+                    ev.preventDefault();
+                    // var row1_len = document.getElementById("dataRows").children[0].children.length
+                    // var row2_len = document.getElementById("dataRows").children[1].children.length
+                    // var row3_len = document.getElementById("dataRows").children[2].children.length
+                    // var row4_len = document.getElementById("dataRows").children[3].children.length     
+                    // var row_len_list = [row1_len,row2_len,row3_len,row4_len]
+                    // //checking if table is empty and making it disappear by removing border
+                    // if(row_len_list.filter(v => v == 0).length >= 3) 
+                    // {
+                    //     document.getElementById("tbl").style = "border: none";
+                    //     var im = document.getElementById("image")
+                    //     var div = document.createElement('div');
+                    //     div.id = "feedback"
+                    //     div.textContent = "Correct!";
+                    //     div.style = "text-align:center; font-size: 20px; color:green; font-weight:600"
+                    //     document.body.insertBefore(div,im)
+                    //     // document.body.appendChild(div);
+                    //     setTimeout(function(){
+                    //         document.getElementById(div.id).outerHTML = "";
+                    //     }, 2500)
+                    // }
+                    var data = ev.dataTransfer.getData("text");
+                    var childCount = ev.target.children.length
+                    var location = ev.target.id
+                    console.log(location)
+                    console.log(data.id)
+                    var text = document.getElementById(data);
+                    if(location == "spot1" && text.id == "drag2")  // Cell Body
+                    {
+                        ev.target.appendChild(text);
+                    }
+                    else if(location == "spot2" && text.id == "drag5") // Nucleus
+                    {
+                        ev.target.appendChild(text);
+                    }
+                    else if(location == "spot3" && text.id == "drag4") // Dendrite
+                    {
+                        ev.target.appendChild(text);
+                    }
+                    else if(location == "spot4" && text.id == "drag7") // to
+                    {
+                        ev.target.appendChild(text);
+                    }
+                    else if(location == "spot5" && text.id == "drag1") // Axon
+                    {
+                        ev.target.appendChild(text);
+                    }
+                    else if(location == "spot6" && text.id == "drag6") // away
+                    {
+                        ev.target.appendChild(text);
+                    }
+                    else if(location == "spot7" && text.id == "drag3") // Synapse
+                    {
+                        ev.target.appendChild(text);
+                    }
+                    else if(location == "spot8" && text.id == "drag8") // across
+                    {
+                        ev.target.appendChild(text);
+                    }
+                    else
+                    {
+                        var im = document.getElementById("image")
+                        var div = document.createElement('div');
+                        div.id = "feedback"
+                        div.textContent = "Incorrect! Try Again!";
+                        div.style = "text-align:center; font-size: 20px; color:red; font-weight:600"
+                        document.body.insertBefore(div,im)
+                        // document.body.appendChild(div);
+                        setTimeout(function(){
+                            document.getElementById(div.id).outerHTML = "";
+                        }, 2000)
+                    }
+                }
+            </script>
+        <style>
+            #slide{
+                color:black;
+                text-align: center;
+                font-size: xx-large; 
+                font-weight: 800;
+            }
+             #image{
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                float: center;
+                width: 650px;
+            }
+            #tbl{
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                float: left;
+                background-color: white;
+                border: 1px solid black;
+            }
+            .clearfix{
+                clear:both
+            }
+            .textElement{
+                font-weight: 800; 
+                font-size: 18px;
+                font-family: Arial, Helvetica, sans-serif;
+                float: left;
+            }
+            .notAxon{
+                text-align: left; 
+                font-weight: 800; 
+                font-size: 18px;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            /* css styling for the individual boxes to drop answers to */
+            #spot1{
+                float: left;
+                width: 100px;
+                height: 70px;
+                background:lightgray;
+                border: 2px solid black;
+                margin-right: 2%;
+                margin-left: 4%;
+                margin-bottom: 2%;
+            }
+            #spot2{
+                float: left;
+                width: 100px;
+                height: 70px;
+                background:lightgray;
+                border: 2px solid black;
+                margin-right: 2%;
+            }
+            #spot3{
+                float: left;
+                width: 100px;
+                height: 70px;
+                background:lightgray;
+                border: 2px solid black;
+                margin-right: 2%;
+            }
+            #spot4{
+                float: left;
+                width: 100px;
+                height: 70px;
+                background:lightgray;
+                border: 2px solid black;
+                margin-right: 2%;
+            }
+            #spot5{
+                float: left;
+                width: 100px;
+                height: 70px;
+                background:lightgray;
+                border: 2px solid black;
+                margin-right: 2%;
+            }
+            #spot6{
+                float: left;
+                width: 100px;
+                height: 70px;
+                background:lightgray;
+                border: 2px solid black;
+                margin-right: 2%;
+            }
+            #spot7{
+                float: left;
+                width: 100px;
+                height: 70px;
+                background:lightgray;
+                border: 2px solid black;
+                margin-right: 2%;
+            }
+            #spot8{
+                float: left;
+                width: 100px;
+                height: 70px;
+                background:lightgray;
+                border: 2px solid black;
+                margin-right: 2%;
+            }
+            .top-right {
+                position: absolute;
+                top: 25%;
+                right: 10%;
+                text-align: center;
+            }
+            .top-right-2 {
+                position: absolute;
+                top: 32%;
+                right: 10%;
+                text-align: center;
+            }
+            .top-right-3 {
+                position: absolute;
+                top: 39%;
+                right: 10%;
+                text-align: center;
+            }
+            .top-right-4 {
+                position: absolute;
+                top: 46%;
+                right: 10%;
+                text-align: center;
+            }
+            .top-right-5 {
+                position: absolute;
+                top: 53%;
+                right: 10%;
+                text-align: center;
+            }
+            .top-right-6 {
+                position: absolute;
+                top: 60%;
+                right: 10%;
+                text-align: center;
+            }
+            .top-right-7 {
+                position: absolute;
+                top: 67%;
+                right: 10%;
+                text-align: center;
+            }
+            .top-right-8 {
+                position: absolute;
+                top: 74%;
+                right: 10%;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body class = "w3-container w3-white">
+        <p id = "slide">Label the Neuron</p>
+        <p style = "text-align: center;" id = "instructions">Starting with the top blank on the right side of the neuron and working your way down, drag and drop the words from the word bank to the appropriate boxes below the image.</p>
+        <!-- word bank represented as table -->
+        <img src = "neuron2.jpg" id = "image" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div class="top-right">
+            <p id = "drag1" class = "textElement" draggable = "true" ondragstart="drag(event)">Axon</p>
+        </div>
+        <div class="top-right-2">
+            <p id = "drag2" class = "textElement" draggable = "true" ondragstart="drag(event)">Cell Body</p>
+        </div>
+        <div class="top-right-3">
+            <p id = "drag3" class = "textElement" draggable = "true" ondragstart="drag(event)">Synapse</p>
+        </div>
+        <div class="top-right-4">
+            <p id = "drag4" class = "textElement" draggable = "true" ondragstart="drag(event)">Dendrite</p>
+        </div>
+        <div class="top-right-5">
+            <p id = "drag5" class = "textElement" draggable = "true" ondragstart="drag(event)">Nucleus</p>
+        </div>
+        <div class="top-right-6">
+            <p id = "drag6" class = "textElement" draggable = "true" ondragstart="drag(event)">away</p>
+        </div>
+        <div class="top-right-7">
+            <p id = "drag7" class = "textElement" draggable = "true" ondragstart="drag(event)">to</p>
+        </div>
+        <div class="top-right-8">
+            <p id = "drag8" class = "textElement" draggable = "true" ondragstart="drag(event)">across</p>
+        </div>
+        <br>
+        <div id = "spot1" ondrop="drop(event)" ondragover="allowDrop(event)">Blank #1</div>
+        <div id = "spot2" ondrop="drop(event)" ondragover="allowDrop(event)">Blank #2</div>
+        <div id = "spot3" ondrop="drop(event)" ondragover="allowDrop(event)">Blank #3</div>
+        <div id = "spot4" ondrop="drop(event)" ondragover="allowDrop(event)">Blank #4</div>
+        <div id = "spot5" ondrop="drop(event)" ondragover="allowDrop(event)">Blank #5</div>
+        <div id = "spot6" ondrop="drop(event)" ondragover="allowDrop(event)">Blank #6</div>
+        <div id = "spot7" ondrop="drop(event)" ondragover="allowDrop(event)">Blank #7</div>
+        <div id = "spot8" ondrop="drop(event)" ondragover="allowDrop(event)">Blank #8</div>
+        <br>
+    </body>
+</html>
