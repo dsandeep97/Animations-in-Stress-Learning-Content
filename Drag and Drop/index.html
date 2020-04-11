@@ -40,39 +40,45 @@
                     var data = ev.dataTransfer.getData("text");
                     var childCount = ev.target.children.length
                     var location = ev.target.id
-                    console.log(location)
-                    console.log(data.id)
-                    var text = document.getElementById(data);
+                    var text = document.getElementById(data)
                     if(location == "spot1" && text.id == "drag2")  // Cell Body
                     {
+                        text.style = "text-align:center;"
                         ev.target.appendChild(text);
                     }
                     else if(location == "spot2" && text.id == "drag5") // Nucleus
                     {
+                        text.style = "text-align:center;"
                         ev.target.appendChild(text);
                     }
                     else if(location == "spot3" && text.id == "drag4") // Dendrite
                     {
+                        text.style = "text-align:center;"
                         ev.target.appendChild(text);
                     }
                     else if(location == "spot4" && text.id == "drag7") // to
                     {
+                        text.style = "text-align:center;"
                         ev.target.appendChild(text);
                     }
                     else if(location == "spot5" && text.id == "drag1") // Axon
                     {
+                        text.style = "text-align:center;"
                         ev.target.appendChild(text);
                     }
                     else if(location == "spot6" && text.id == "drag6") // away
                     {
+                        text.style = "text-align:center;"
                         ev.target.appendChild(text);
                     }
                     else if(location == "spot7" && text.id == "drag3") // Synapse
                     {
+                        text.style = "text-align:center;"
                         ev.target.appendChild(text);
                     }
                     else if(location == "spot8" && text.id == "drag8") // across
                     {
+                        text.style = "text-align:center;"
                         ev.target.appendChild(text);
                     }
                     else
@@ -119,7 +125,8 @@
                 font-weight: 800; 
                 font-size: 18px;
                 font-family: Arial, Helvetica, sans-serif;
-                float: left;
+                float: center;
+                text-align: left;
             }
             .notAxon{
                 text-align: left; 
@@ -130,7 +137,7 @@
             /* css styling for the individual boxes to drop answers to */
             #spot1{
                 float: left;
-                width: 100px;
+                width: 140px;
                 height: 70px;
                 background:lightgray;
                 border: 2px solid black;
@@ -140,15 +147,16 @@
             }
             #spot2{
                 float: left;
-                width: 100px;
+                width: 140px;
                 height: 70px;
                 background:lightgray;
                 border: 2px solid black;
                 margin-right: 2%;
+                margin-bottom: 2%;
             }
             #spot3{
                 float: left;
-                width: 100px;
+                width: 140px;
                 height: 70px;
                 background:lightgray;
                 border: 2px solid black;
@@ -156,7 +164,7 @@
             }
             #spot4{
                 float: left;
-                width: 100px;
+                width: 140px;
                 height: 70px;
                 background:lightgray;
                 border: 2px solid black;
@@ -164,7 +172,7 @@
             }
             #spot5{
                 float: left;
-                width: 100px;
+                width: 140px;
                 height: 70px;
                 background:lightgray;
                 border: 2px solid black;
@@ -172,7 +180,7 @@
             }
             #spot6{
                 float: left;
-                width: 100px;
+                width: 140px;
                 height: 70px;
                 background:lightgray;
                 border: 2px solid black;
@@ -180,7 +188,7 @@
             }
             #spot7{
                 float: left;
-                width: 100px;
+                width: 140px;
                 height: 70px;
                 background:lightgray;
                 border: 2px solid black;
@@ -188,7 +196,7 @@
             }
             #spot8{
                 float: left;
-                width: 100px;
+                width: 140px;
                 height: 70px;
                 background:lightgray;
                 border: 2px solid black;
@@ -196,92 +204,130 @@
             }
             .top-right {
                 position: absolute;
-                top: 25%;
+                top: 20%;
                 right: 10%;
                 text-align: center;
             }
             .top-right-2 {
                 position: absolute;
-                top: 32%;
+                top: 27%;
                 right: 10%;
                 text-align: center;
             }
             .top-right-3 {
                 position: absolute;
-                top: 39%;
+                top: 34%;
                 right: 10%;
                 text-align: center;
             }
             .top-right-4 {
                 position: absolute;
-                top: 46%;
+                top: 41%;
                 right: 10%;
                 text-align: center;
             }
             .top-right-5 {
                 position: absolute;
-                top: 53%;
+                top: 48%;
                 right: 10%;
                 text-align: center;
             }
             .top-right-6 {
                 position: absolute;
-                top: 60%;
+                top: 55%;
                 right: 10%;
                 text-align: center;
             }
             .top-right-7 {
                 position: absolute;
-                top: 67%;
+                top: 62%;
                 right: 10%;
                 text-align: center;
             }
             .top-right-8 {
                 position: absolute;
-                top: 74%;
+                top: 69%;
                 right: 10%;
                 text-align: center;
             }
+            #line{
+                border: 1px solid black;
+                width: 20%;
+                height: 10%;
+                position: fixed;
+                bottom: 57%;
+                left: 10%;
+            }
+            .wordBank{
+                position: fixed;
+                columns: 2;
+                /* top: 20%;
+                right: 2%; */
+                width: 270px;
+                height: 200px;
+                margin-left: auto;
+                margin-right: auto;
+                padding-top: 1%;
+                padding-bottom: 1%;
+                background-color: lightgreen;
+                border: 2px solid black;
+            }   
         </style>
     </head>
     <body class = "w3-container w3-white">
         <p id = "slide">Label the Neuron</p>
-        <p style = "text-align: center;" id = "instructions">Starting with the top blank on the right side of the neuron and working your way down, drag and drop the words from the word bank to the appropriate boxes below the image.</p>
+        <p style = "text-align: center;" id = "instructions">Starting with the top blank on the right side of the neuron and working your way down, drag and drop the words from the word bank to the corresponding boxes below the image.</p>
         <!-- word bank represented as table -->
-        <img src = "neuron2.jpg" id = "image" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <div class="top-right">
-            <p id = "drag1" class = "textElement" draggable = "true" ondragstart="drag(event)">Axon</p>
-        </div>
-        <div class="top-right-2">
-            <p id = "drag2" class = "textElement" draggable = "true" ondragstart="drag(event)">Cell Body</p>
-        </div>
-        <div class="top-right-3">
-            <p id = "drag3" class = "textElement" draggable = "true" ondragstart="drag(event)">Synapse</p>
-        </div>
-        <div class="top-right-4">
-            <p id = "drag4" class = "textElement" draggable = "true" ondragstart="drag(event)">Dendrite</p>
-        </div>
-        <div class="top-right-5">
-            <p id = "drag5" class = "textElement" draggable = "true" ondragstart="drag(event)">Nucleus</p>
-        </div>
-        <div class="top-right-6">
-            <p id = "drag6" class = "textElement" draggable = "true" ondragstart="drag(event)">away</p>
-        </div>
-        <div class="top-right-7">
-            <p id = "drag7" class = "textElement" draggable = "true" ondragstart="drag(event)">to</p>
-        </div>
-        <div class="top-right-8">
-            <p id = "drag8" class = "textElement" draggable = "true" ondragstart="drag(event)">across</p>
-        </div>
         <br>
-        <div id = "spot1" ondrop="drop(event)" ondragover="allowDrop(event)">Blank #1</div>
-        <div id = "spot2" ondrop="drop(event)" ondragover="allowDrop(event)">Blank #2</div>
-        <div id = "spot3" ondrop="drop(event)" ondragover="allowDrop(event)">Blank #3</div>
-        <div id = "spot4" ondrop="drop(event)" ondragover="allowDrop(event)">Blank #4</div>
-        <div id = "spot5" ondrop="drop(event)" ondragover="allowDrop(event)">Blank #5</div>
-        <div id = "spot6" ondrop="drop(event)" ondragover="allowDrop(event)">Blank #6</div>
-        <div id = "spot7" ondrop="drop(event)" ondragover="allowDrop(event)">Blank #7</div>
-        <div id = "spot8" ondrop="drop(event)" ondragover="allowDrop(event)">Blank #8</div>
+        <div class = "wordBank">
+            <p id = "drag1" class = "textElement" draggable = "true" ondragstart="drag(event)" style = "margin-top: 0px;">&emsp;Axon</p>
+            <p id = "drag2" class = "textElement" draggable = "true" ondragstart="drag(event)">&emsp;Cell Body</p>
+            <p id = "drag3" class = "textElement" draggable = "true" ondragstart="drag(event)">&emsp;Synapse</p>
+            <p id = "drag4" class = "textElement" draggable = "true" ondragstart="drag(event)">&emsp;Dendrite</p>
+            <p id = "drag5" class = "textElement" draggable = "true" ondragstart="drag(event)" style = "margin-top: 0px;">&emsp;Nucleus</p>
+            <p id = "drag6" class = "textElement" draggable = "true" ondragstart="drag(event)">&emsp;away</p>
+            <p id = "drag7" class = "textElement" draggable = "true" ondragstart="drag(event)">&emsp;to</p>
+            <p id = "drag8" class = "textElement" draggable = "true" ondragstart="drag(event)">&emsp;across</p>
+    </div>
+        <img src = "neuron2.jpg" id = "image" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <!-- <img src = "line.jpg" id = "line" ondrop="drop(event)" ondragover="allowDrop(event)">   -->
+        <!-- <div class = "wordBank">
+            <div class="top-right">
+                <p id = "drag1" class = "textElement" draggable = "true" ondragstart="drag(event)">Axon</p>
+            </div>
+            <div class="top-right-2">
+                <p id = "drag2" class = "textElement" draggable = "true" ondragstart="drag(event)">Cell Body</p>
+            </div>
+            <div class="top-right-3">
+                <p id = "drag3" class = "textElement" draggable = "true" ondragstart="drag(event)">Synapse</p>
+            </div>
+            <div class="top-right-4">
+                <p id = "drag4" class = "textElement" draggable = "true" ondragstart="drag(event)">Dendrite</p>
+            </div>
+            <div class="top-right-5">
+                <p id = "drag5" class = "textElement" draggable = "true" ondragstart="drag(event)">Nucleus</p>
+            </div>
+            <div class="top-right-6">
+                <p id = "drag6" class = "textElement" draggable = "true" ondragstart="drag(event)">away</p>
+            </div>
+            <div class="top-right-7">
+                <p id = "drag7" class = "textElement" draggable = "true" ondragstart="drag(event)">to</p>
+            </div>
+            <div class="top-right-8">
+                <p id = "drag8" class = "textElement" draggable = "true" ondragstart="drag(event)">across</p>
+            </div>
+        </div> -->
+        <br>
+        <br>
+        <br>
+        <div id = "spot1" ondrop="drop(event)" ondragover="allowDrop(event)" style = "text-align:center;">Blank #1</div>
+        <div id = "spot2" ondrop="drop(event)" ondragover="allowDrop(event)" style = "text-align:center;">Blank #2</div>
+        <div id = "spot3" ondrop="drop(event)" ondragover="allowDrop(event)" style = "text-align:center;">Blank #3</div>
+        <div id = "spot4" ondrop="drop(event)" ondragover="allowDrop(event)" style = "text-align:center;">Blank #4</div>
+        <div id = "spot5" ondrop="drop(event)" ondragover="allowDrop(event)" style = "text-align:center;">Blank #5</div>
+        <div id = "spot6" ondrop="drop(event)" ondragover="allowDrop(event)" style = "text-align:center;">Blank #6</div>
+        <div id = "spot7" ondrop="drop(event)" ondragover="allowDrop(event)" style = "text-align:center;">Blank #7</div>
+        <div id = "spot8" ondrop="drop(event)" ondragover="allowDrop(event)" style = "text-align:center;">Blank #8</div>
         <br>
     </body>
 </html>
