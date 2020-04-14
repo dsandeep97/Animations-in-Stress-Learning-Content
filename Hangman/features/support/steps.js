@@ -1,38 +1,62 @@
 // features/support/steps.js
-const { Given, When, Them, After } = require("cucumber"); 
+const { Given, When, Then, After, setDefaultTimeout } = require("cucumber"); 
 const { expect } = require("chai"); 
 const { sleep } = require("./util"); 
+
+setDefaultTimeout(10 * 1000);
 
 After(async function() {
     return this.driver.quit(); 
 }); 
 
-Given(/^a formatted sentence (.*)$/, function (new_sentence) {
-    sentence = new_sentence; 
-});
-
-When(/^I load the hangman words$/, function () {
-    [sentence,words] = hangman.processSentence(sentence,answers); 
-});
-
-When(/^I guess the following letters$/, function(dataTable) {
-    var letters = dataTable["rawTable"];
-    for (letter of letters) {
-        sentence = hangman.handleGuess(letter,answers,guesses,sentence); 
-    }
+Given(/^I am playing hangman$/, async function () {
+    await this.init(); 
 }); 
 
-Then(/^the list of words should be (.*)$/, function (correct_words) {
-    if (correct_words == 'n/a') assert.equal(words,null); 
-    else {
-        correct_words = correct_words.split(';'); 
-        words.forEach(function(word,i) {
-            assert.equal(word,correct_words[i]); 
-        })
+Given(/^I have already guessed the following letters$/, async function (dataTable) {
+    var letters = dataTable["rawTable"]; 
+    for (letter of letters) { this.guessLetter(letter); }
+});
+
+When(/^I guess the letter "(.*)"$/, async function(letter) {
+    this.guessLetter(letter); 
+}); 
+
+When(/^I guess the following letters$/, async function (dataTable) {
+    var letters = dataTable["rawTable"]; 
+    for (letter of letters) {
+        this.guessLetter(letter); 
     }
 });
 
-Then(/^I should see (.*)$/, function(check) {
-    assert.equal(check, "Wrong Guesses: " + guesses.get("wrong") + " of " + guesses.get("total")); 
+When(/^I guess too many incorrect letters$/, async function() {
+    await this.lose(); 
+}); 
+
+When(/^I guess all the correct letters$/, async function() {
+    await this.win(); 
 });
 
+When(/^I click the reset button$/, async function() {
+    await this.reset(); 
+}); 
+
+Then(/^I should see status "(.*)"$/, async function(phrase) {
+    const statusText = await this.getStatus(); 
+    expect(statusText).to.eql(phrase); 
+}); 
+
+Then(/^I should see blanks turn into letters I guessed$/, async function() {
+    const updated = await this.checkWords(); 
+    expect(updated).to.eql(true); 
+}); 
+
+Then(/^I should see hangman image "(.*)"$/, async function(expected_img) {
+    const img = await this.checkImage(); 
+    expect(img).to.include(expected_img); 
+}); 
+
+Then(/^I should (.*)see the reset button$/, async function(should_see) {
+    const can_reset = await this.checkReset(); 
+    expect(can_reset).to.eql(should_see == null); 
+}); 
