@@ -41,6 +41,7 @@ window.onload = function() {
     var wrong_guesses = document.getElementById('wrong'); 
     var letter_buttons = document.getElementById('letters'); 
     var word_displays; 
+    var reset_button = document.getElementById('reset'); 
 
     /* process the given sentence, list of words, and set up the phrase for playing */ 
     function loadSentence() {
@@ -102,7 +103,7 @@ window.onload = function() {
             if (guess_map.get("wrong") == guess_map.get("total")) {
                 hangman_picture.src = "./img/lose.png"; 
                 letter_buttons.innerHTML = "You lose. Click Reset to try again!"; 
-                guess_map.set("wrong",0); 
+                reset_button.style.display = "";
             } else {
                 hangman_picture.src = "./img/wrong" + guess_map.get("wrong").toString() + ".png"; 
             }
@@ -110,13 +111,14 @@ window.onload = function() {
     }
     
     /* reset the game */ 
-    document.getElementById('reset').onclick = function() {
+    reset_button.onclick = function() {
         guess_map.set("right",0);
         guess_map.set("wrong",0); 
         wrong_guesses.innerText = 0; 
         hangman_picture.src = "./img/wrong0.png"; 
         loadSentence(); 
-        generateButtons(); 
+        generateButtons();
+        reset_button.style.display = "none"; 
     }   
 
     /* initialize the game */ 

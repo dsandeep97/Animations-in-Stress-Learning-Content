@@ -1,12 +1,12 @@
-var {Given} = require('cucumber'); 
-var {When} = require('cucumber'); 
-var {Then} = require('cucumber'); 
-var assert = require('assert'); 
-var hangman = require('../../js/hangman'); 
+// features/support/steps.js
+const { Given, When, Them, After } = require("cucumber"); 
+const { expect } = require("chai"); 
+const { sleep } = require("./util"); 
 
-var sentence, words;  
-var answers = new Map(); 
-var guesses = new Map([["total",8],["wrong",0],["right",0]]); 
+After(async function() {
+    return this.driver.quit(); 
+}); 
+
 Given(/^a formatted sentence (.*)$/, function (new_sentence) {
     sentence = new_sentence; 
 });
