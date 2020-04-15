@@ -37,10 +37,12 @@ window.onload = function() {
 
     /* pre-assigned document variables for easy access */
     var sentence_display = document.getElementById('sentenceToFill'); 
+    var status = document.getElementById('status'); 
     var hangman_picture = document.getElementById('hangmanPic'); 
     var wrong_guesses = document.getElementById('wrong'); 
     var letter_buttons = document.getElementById('letters'); 
     var word_displays; 
+    var reset_button = document.getElementById('reset'); 
 
     /* process the given sentence, list of words, and set up the phrase for playing */ 
     function loadSentence() {
@@ -93,7 +95,9 @@ window.onload = function() {
             }
             if (guess_map.get("right") == answer_map.size) {
                 hangman_picture.src = "./img/win.png"; 
-                letter_buttons.innerHTML = "You win! Hope you enjoyed playing."; 
+                status.innerHTML = "You win! Hope you enjoyed playing."
+                letter_buttons.innerHTML = ""; 
+                reset_button.style.display = ""; 
             }
         /* incorrect guess */ 
         } else {
@@ -101,8 +105,9 @@ window.onload = function() {
             wrong_guesses.innerHTML = guess_map.get("wrong"); 
             if (guess_map.get("wrong") == guess_map.get("total")) {
                 hangman_picture.src = "./img/lose.png"; 
-                letter_buttons.innerHTML = "You lose. Click Reset to try again!"; 
-                guess_map.set("wrong",0); 
+                status.innerHTML = "You lose. Click Reset to try again!";  
+                letter_buttons.innerHTML = "";
+                reset_button.style.display = "";
             } else {
                 hangman_picture.src = "./img/wrong" + guess_map.get("wrong").toString() + ".png"; 
             }
@@ -110,13 +115,15 @@ window.onload = function() {
     }
     
     /* reset the game */ 
-    document.getElementById('reset').onclick = function() {
+    reset_button.onclick = function() {
         guess_map.set("right",0);
         guess_map.set("wrong",0); 
         wrong_guesses.innerText = 0; 
         hangman_picture.src = "./img/wrong0.png"; 
+        status.innerHTML = `Wrong Guesses: <span id="wrong">0</span> of <span id="totalGuesses">${guess_map.get("total")}</span>`
         loadSentence(); 
-        generateButtons(); 
+        generateButtons();
+        reset_button.style.display = "none"; 
     }   
 
     /* initialize the game */ 
