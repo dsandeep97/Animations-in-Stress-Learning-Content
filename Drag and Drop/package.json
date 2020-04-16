@@ -4,12 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/cucumber-js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "iframe-resizer": "^4.2.10"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chromedriver": "^81.0.0",
+    "cucumber": "^6.0.5",
+    "selenium-webdriver": "^3.6.0"
   }
 }
