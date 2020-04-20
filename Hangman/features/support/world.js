@@ -13,12 +13,11 @@ class browserBuild {
     async init() {
         // Currently only works with "chrome" and "firefox" browser options
         // Workaround for testing in other browsers has not yet been pursued due to minimal requirements
-        const driver = await new Builder().forBrowser("chrome").build(); 
+        const driver = await new Builder().forBrowser("firefox").build(); 
         await driver.manage().window().maximize(); 
         await driver.get(`file:///${__dirname}/../../index.html`);
         this.guesses = new Set(); 
         this.driver = driver; 
-        sleep(500); 
     }
 
     async guessLetter(letter) {
@@ -26,7 +25,7 @@ class browserBuild {
         this.guesses.add(`${letter}`);
         const button = await driver.findElement(By.id(`${letter}`));  
         await button.click(); 
-        sleep(200); 
+        sleep(500); 
     }
 
     async getStatus() {
