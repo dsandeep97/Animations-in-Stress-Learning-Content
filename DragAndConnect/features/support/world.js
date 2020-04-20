@@ -29,14 +29,14 @@ class browserBuild {
       const answerBox = this.config.boxesRight[box.answer];
       actions
         .move({
-          duration: 1,
+          duration: 100,
           origin: canvas,
           x: -canvasRect.width / 2 + box.x,
           y: -canvasRect.height / 2 + box.y,
         })
         .press()
         .move({
-          duration: 1,
+          duration: 100,
           origin: canvas,
           x: -canvasRect.width / 2 + answerBox.x,
           y: -canvasRect.height / 2 + answerBox.y,
