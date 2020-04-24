@@ -1,7 +1,8 @@
 // features/support/world.js
 const { setWorldConstructor } = require("cucumber");
 const { Builder, By, Key, until } = require("selenium-webdriver");
-const chromedriver = require("chromedriver");
+const chrome = require("chromedriver");
+const firefox = require("geckodriver");
 
 class browserBuild {
   constructor() { }

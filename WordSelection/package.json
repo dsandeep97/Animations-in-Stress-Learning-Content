@@ -17,5 +17,7 @@
         "cucumber": "^6.0.5",
         "selenium-webdriver": "^4.0.0-alpha.7"
     },
-    "dependencies": {}
+    "dependencies": {
+        "geckodriver": "^1.19.1"
+    }
 }
