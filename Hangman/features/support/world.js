@@ -13,7 +13,7 @@ class browserBuild {
     async init() {
         // Currently only works with "chrome" and "firefox" browser options
         // Workaround for testing in other browsers has not yet been pursued due to minimal requirements
-        const driver = await new Builder().forBrowser("firefox").build(); 
+        const driver = await new Builder().forBrowser("chrome").build(); 
         await driver.manage().window().maximize(); 
         await driver.get(`file:///${__dirname}/../../index.html`);
         this.guesses = new Set(); 
