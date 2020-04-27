@@ -1,6 +1,3 @@
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
 $(document).ready(function () {
     var move_to = function( $obj, $target){
         $parent = $obj.parent();
@@ -25,7 +22,7 @@ $(document).ready(function () {
             }else{
                 $con.removeClass("has-answer");
             }
-        }else if($con.hasClass("answer-container")){
+        }else if($con.hasClass("word-bank")){
         }
     }
     $(".answer").draggable({
@@ -49,7 +46,7 @@ $(document).ready(function () {
             var $q = $(this);
             $ans = ui.draggable;
             if($q.hasClass("has-answer")){
-                move_to($q.children(), $(".answer-container"));
+                move_to($q.children(), $(".word-bank"));
             }
             move_to($ans, $q);
         }
@@ -57,29 +54,29 @@ $(document).ready(function () {
     $(".dropBox").dblclick(function(){
         $q = $(this)
         if($q.hasClass("has-answer")){
-            move_to($q.children(), $(".answer-container"));
+            move_to($q.children(), $(".word-bank"));
         }
     });
-    $( "#submit" ).click(function() {
-        var numCorrect = 0;
-        $('.dropBox').each(function() {
-            $q = $(this);
-            if($q.attr("id") ==  "#" + $q.children().attr("id")){
-                numCorrect=numCorrect+1;
-                $q.css('background', 'green');
-                $q.children().draggable('disable');
-                $q.droppable('disable');
-            }else{
-                $q.css('background', 'red');
-                $q.children().draggable('enable');
-                $q.droppable('enable');
-            }
-        });
-        $('#result').text(`You answered ${numCorrect}/8 questions correctly!`);
-        $('#result').css({'font': '2px', 'font-weight': '600', 'text-indent':'2em', 'float' : 'left'});
+$( "#submit" ).click(function() {
+    var numCorrect = 0;
+    $('.dropBox').each(function() {
+        $q = $(this);
+        if($q.attr("id") == "#" + $q.children().attr("id")){
+            numCorrect=numCorrect+1;
+            $q.css('background', 'green');
+            $q.children().draggable('disable');
+            $q.droppable('disable');
+        }else{
+            $q.css('background', 'red');
+            $q.children().draggable('enable');
+            $q.droppable('enable');
+        }
     });
-
-    $('.question').each(function(){
-        update($(this));
-    });
+    $('#result').text(`You answered ${numCorrect}/8 questions correctly!`);
+    $('#result').css({'position':'absolute', 'bottom': '15%', 'font-size': '2vw', 'font-weight': '600', 'float' : 'center'});
+    window.setTimeout(function(){
+        $('#result').text(``);
+    }, 2500)
 });
+
+})
