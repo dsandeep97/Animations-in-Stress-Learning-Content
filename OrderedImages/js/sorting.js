@@ -1,6 +1,6 @@
-
 window.onload = function() {
     this.jQuery(); 
+    console.log("aaa");
 }
 
 jQuery(function(){
