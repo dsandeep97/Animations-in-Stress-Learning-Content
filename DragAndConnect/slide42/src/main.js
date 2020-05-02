@@ -1,4 +1,4 @@
-window.onload = () => {
+function init() {
   const c = document.getElementById("canvas");
   const ctx = c.getContext("2d");
   const result = document.getElementById("result");
@@ -91,6 +91,7 @@ window.onload = () => {
 
     ctx.font = "15px Comic Sans MS";
     ctx.textAlign = "center";
+
     const lines = getLines(ctx, box.content, width);
     lines.forEach((line, i) => {
       ctx.fillText(line, x + width / 2, y + 15 * (i + 4 - lines.length / 2));
@@ -158,15 +159,6 @@ window.onload = () => {
 
     box1.line = box2;
     box2.line = box1;
-  }
-
-  function clearBoxLines() {
-    config.boxesLeft.forEach((box) => {
-      box.line = null;
-    });
-    config.boxesRight.forEach((box) => {
-      box.line = null;
-    });
   }
 
   function drawConnectors() {
@@ -270,6 +262,7 @@ window.onload = () => {
   function setupMouseListener() {
     let isDragging = false;
     let startPos;
+    let lastTouch;
 
     function getCursorPosition(canvas, event) {
       const rect = canvas.getBoundingClientRect();
@@ -278,12 +271,12 @@ window.onload = () => {
       return { x, y };
     }
 
-    c.addEventListener("mousedown", (e) => {
+    function onDown(e) {
       isDragging = true;
       startPos = getCursorPosition(c, e);
-    });
+    }
 
-    c.addEventListener("mouseup", (e) => {
+    function onUp(e) {
       isDragging = false;
 
       const endPos = getCursorPosition(c, e);
@@ -293,9 +286,45 @@ window.onload = () => {
         drawLineBetweenBoxes(boxStart, boxEnd);
         checkEnd();
       }
+    }
+
+    c.addEventListener("mousedown", onDown);
+
+    c.addEventListener("mouseup", onUp);
+
+    c.addEventListener("touchstart", (e) => {
+      onDown(e.touches[0]);
+      lastTouch = e.touches[0];
+    });
+
+    c.addEventListener("touchmove", (e) => {
+      lastTouch = e.touches[0];
+    });
+
+    c.addEventListener("touchend", (e) => {
+      onUp(lastTouch);
     });
   }
 
-  drawEverything();
+  function updateCanvasResolution() {
+    const compStyles = window.getComputedStyle(c);
+    c.width = compStyles.width.substr(0, compStyles.width.length - 2);
+    c.height = compStyles.height.substr(0, compStyles.height.length - 2);
+  }
+
+  // canvas, context are defined
+  function render() {
+    try {
+      updateCanvasResolution();
+      drawEverything();
+    } catch (error) {
+      console.log(error);
+    }
+    requestAnimationFrame(render);
+  }
+
+  render();
   setupMouseListener();
-};
+}
+
+window.onload = init;
