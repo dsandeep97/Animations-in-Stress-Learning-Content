@@ -1,55 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- iframe resizer -->
-        <script src = "js/iframeResizer.min.js"></script>
-        <script src = "js/iframeResizer.contentWindow.min.js"></script>
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-        <script src = js/drag_and_drop.js></script>
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" type="text/css">
-        <link rel = "stylesheet" href = "css/style.css">
-        <style>   
-        </style>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- jquery scripts -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!-- iframe resizer -->
+    <script type="text/javascript" src="js/iframeResizer.contentWindow.min.js"></script>
+    <!-- drag and drop animation script -->
+    <script type="text/javascript" src="js/drag_and_drop.js"></script>
+    <header style = "text-align: center; font-size: 1.6vw">
+      Drop the descriptions in the correct place in the feedback loop. 
+      Select whether this is <strong>negative</strong> or <strong>positive</strong> feedback.
+    </header>
     </head>
-    <body>
-        <br>
-        <h3 style = "text-align: center;">Drop the descriptions in the correct place in the feedback loop.
-          Select whether this is negative or positive feedback</h3>
-        <br>
-        <br>
-        <div id="mainContainer" class="mainContainer" data-viewportNarrow="false">
-            <div class = "question-container">
-                <img src = "img/feedback2.jpg" id = "image" ondrop="drop(event)" ondragover="allowDrop(event)">
-                <div id = "#1" class = "dropBox" style="position: absolute;top: 236px;left: 454px;width: 175px;height: 70px"  style = "text-align:center;">#1</div>
-                <div id = "#2" class = "dropBox" style="position: absolute;top: 137px;left: 715px;width: 130px;height: 41px"  style = "text-align:center;">#2</div>
-                <div id = "#3" class = "dropBox" style="position: absolute;top: 235px;left: 935px;width: 182px;height: 72px"  style = "text-align:center;">#3</div>
-                <div id = "#4" class = "dropBox" style="position: absolute;top: 405px;left: 793px;width: 275px;height: 42px"  style = "text-align:center;">#4</div>
-                <div id = "#5" class = "dropBox" style="position: absolute;top: 390px;left: 422px;width: 220px;height: 42px"  style = "text-align:center;">#5</div>
-            </div>  
-            <div class="wordBank">
-                <div class= "answer-container">
-                  <center>
-                    <b style = "text-decoration:underline;">Possible Answer Choices</b>
-                    <div class="answer" id="4" >Insulin enables the liver to take up glucose and store it as glycogen.</div>
-                    <div class="answer" id="1" >Time for lunch! You have low blood sugar (glucose).</div>
-                    <div class="answer" id="3" >In response to higher glucose levels, the pancreas releases insulin into the blood.</div>
-                    <div class="answer" id="5" >Homeostasis! Your blood sugar is within a normal range.</div>
-                    <div class="answer" id="2" >After eating your blood sugar rises.</div>
-                    <br>
-                    <input type = "radio" id = "feedback1" name = "feedback" value = "positive">Positive 
-                    <input type = "radio" id = "feedback2" name = "feedback" value = "negative">Negative
-                  </center>
-                </div>
-                <div class="submit-container">
-                  <button id="submit" >Submit</button>
-                </div>
-              </div>
+  <body>
+
+    <div id="master-container">
+      <div class="question-container" >
+        <div id = "#1" class = "dropBox" style = "top:45.0%; left:2.5%; width:20%; height:15%">#1</div>
+        <div id = "#2" class = "dropBox" style = "top:26.0%; left:29%; width:15%; height:10%">#2</div>
+        <div id = "#3" class = "dropBox" style = "top:46.4%; left:52.0%; width:20.5%; height:15%">#3</div>
+        <div id = "#4" class = "dropBox" style = "top:80.4%; left:36.2%; width:33%; height:8%">#4</div>
+        <div id = "#5" class = "dropBox" style = "top:77.4%; left:0%; width:22%; height:10%">#5</div>
+      </div>
+      <div class= "answer-container">
+        <center>
+          <div class="word-bank">
+            <p style = "font-weight: 600; font-size: 1.6vw; text-decoration: underline;"> Possible Answer Choices</p>
+            <div class="answer" id="5" >Homeostasis! Your blood sugar is within a normal range.</div>
+            <div class="answer" id="1" >Time for lunch! You have low blood sugar (glucose).</div>
+            <div class="answer" id="3" >In response to higher glucose levels, the pancreas releases insulin into the blood.</div>
+            <div class="answer" id="2" >After eating your blood sugar rises.</div>
+            <div class="answer" id="4" >Insulin enables the liver to take up glucose and store it as glycogen.</div>
+            <input type = "radio" id = "feedback1" name = "feedback" value = "positive">Positive 
+            <input type = "radio" id = "feedback2" name = "feedback" value = "negative">Negative
+          </div>
+        </center>
+        <div class="submit-container">
+          <button id="submit" >Submit</button>
         </div>
-        <div id = "result"></div></p>
-        <div id="viewPortNarrowThreshold"></div>
-    </body>
+        <p><div id = "result"></div></p>
+      </div>
+    </div>
+  </body>
 </html>
