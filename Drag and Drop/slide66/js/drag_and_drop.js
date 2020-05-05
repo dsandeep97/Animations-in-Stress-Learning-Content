@@ -2,6 +2,13 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 $(document).ready(function () {
+    var timer1 = setInterval(function(){
+        if( $('.question-container').height() > 0 ){
+        $('#master-container').css( 'height' , 'auto' );
+        clearInterval(timer1);
+        }
+        }, 100);
+        
     var move_to = function( $obj, $target){
         $parent = $obj.parent();
         $parent.detach($obj);
@@ -25,7 +32,7 @@ $(document).ready(function () {
             }else{
                 $con.removeClass("has-answer");
             }
-        }else if($con.hasClass("answer-container")){
+        }else if($con.hasClass("word-bank")){
         }
     }
     $(".answer").draggable({
@@ -49,7 +56,7 @@ $(document).ready(function () {
             var $q = $(this);
             $ans = ui.draggable;
             if($q.hasClass("has-answer")){
-                move_to($q.children(), $(".answer-container"));
+                move_to($q.children(), $(".word-bank"));
             }
             move_to($ans, $q);
         }
@@ -57,7 +64,7 @@ $(document).ready(function () {
     $(".dropBox").dblclick(function(){
         $q = $(this)
         if($q.hasClass("has-answer")){
-            move_to($q.children(), $(".answer-container"));
+            move_to($q.children(), $(".word-bank"));
         }
     });
     $( "#submit" ).click(function() {
@@ -78,13 +85,16 @@ $(document).ready(function () {
         if($('#feedback2').is(':checked'))
         {
             $('#result').text(`You answered ${numCorrect}/5 questions correctly and accurately selected the feedback type!`);
-            $('#result').css({'position' : 'absolute','font': '2px', 'font-weight': '600', 'text-indent':'20em', 'float' : 'left', 'top' : '100px'});
+            $('#result').css({'position' : 'absolute','font': '10vw', 'font-weight': '600', 'float' : 'left'});
         }
         else
         {
             $('#result').text(`You answered ${numCorrect}/5 questions correctly and inaccurately selected the feedback type!`);
-            $('#result').css({'position' : 'absolute','font': '2px', 'font-weight': '600', 'text-indent':'20em', 'float' : 'left', 'top' : '100px'});
+            $('#result').css({'position' : 'absolute' , 'top': '100%','word-wrap': 'break-word','float': 'left','font-size': '1.5vw', 'font-weight': '600'});
         }
+        window.setTimeout(function(){
+            $('#result').text(``);
+        }, 2500)
     });
 
     $('.question').each(function(){
