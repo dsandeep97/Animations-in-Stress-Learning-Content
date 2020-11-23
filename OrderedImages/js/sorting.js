@@ -37,21 +37,21 @@ function compareArr(arr1, arr2) {
     var incorrect_answer = false;
 
     if (arr1.length != arr2.length) {
-        $(".imageList").css("border", "3px solid red");
+        $(".imageList").css("border", "3px solid #BB2525");
     }
 
     for (var i = 0; i < arr1.length; i++) {
         if (arr1[i] != arr2[i]) {
             incorrect_answer = true;
-            $(".imageList").eq(i).css("border", "3px solid red");
+            $(".imageList").eq(i).css("border", "3px solid #BB2525");
         } else {
-            $(".imageList").eq(i).css("border", "3px solid lime");
+            $(".imageList").eq(i).css("border", "3px solid #94FFBE");
         }
     }
 
     if (incorrect_answer) {
-        $("#checked_order").html("<b style='color: red'>Incorrect Ordering!</b>")
+        $("#checked_order").html("<b style='color: #BB2525'>Incorrect Ordering!</b>")
     } else {
-        $("#checked_order").html("<b style='color: green'>Correct Ordering! Good Job!</b>")
+        $("#checked_order").html("<b style='color: #94FFBE'>Correct Ordering! Good Job!</b>")
     }
 }

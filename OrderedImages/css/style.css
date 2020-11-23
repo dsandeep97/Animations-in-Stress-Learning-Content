@@ -1,5 +1,20 @@
+html, body {
+    height: 850px;
+}
+
 #title {
     text-align: center;
+    padding-top: 5%;
+}
+
+#subtitle {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#subtext {
+    font-size: 20px;
+    font-weight: bold;
 }
 
 #imageListItems {
@@ -33,7 +48,7 @@ img {
 }
 
 .imageList {
-    margin: 3px 3px 3px 0;
+    margin: 5px auto;
     padding: 1px;
     width: 200px;
     height: 300px;
@@ -41,4 +56,47 @@ img {
     border: solid 3px;
     background-color: #F8F8FF;
     display: inline-block;
+}
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px) {
+    html, body {
+        height: 1000px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #title {
+        padding-top: 0;
+    }
+
+    .imageList {
+        width: 120px;
+        height: 200px;
+    }
+
+    img {
+        width: 120px;
+        height: 200px;
+    }
+}
+
+/* iPhone 5 only */
+@media only screen and (device-width: 320px)
+and (device-height: 568px)
+and (-webkit-min-device-pixel-ratio: 2) {
+    #title {
+        padding-top: 0;
+    }
+
+    .imageList {
+        width: 70px;
+        height: 160px;
+    }
+
+    img {
+        width: 70px;
+        height: 160px;
+    }
 }
